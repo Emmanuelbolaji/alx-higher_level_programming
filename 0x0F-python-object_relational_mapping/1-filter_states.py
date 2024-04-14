@@ -2,9 +2,8 @@
 """
 Script to list all states with a name starting with 'N' from a MySQL database.
 
-This script connects to a MySQL server and retrieves states whose names start with 'N'
-from a specific database.
-The script takes three arguments: MySQL username, MySQL password, and database name.
+This script connects to a MySQL server`
+The script takes three arguments
 Results are sorted in ascending order by states.id.
 
 Usage:
@@ -18,8 +17,10 @@ Output:
     (5, 'Nevada')
 """
 
+
 import MySQLdb
 import sys
+
 
 def main():
     username = sys.argv[1]
@@ -40,6 +41,6 @@ def main():
 
     db.close()
 
+
 if __name__ == "__main__":
     main()
-
