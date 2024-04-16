@@ -12,7 +12,6 @@ Example:
 Output:
     (2, 'Arizona')
 """
-
 import MySQLdb
 import sys
 
