@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script connects to a MySQL server
+This script connects to MySQL server
 The script takes four arguments
 Results are sorted in ascending order by states.id.
 usage:
