@@ -12,16 +12,13 @@ Example:
 Output:
     (2, 'Arizona')
 """
+
+
 import MySQLdb
 import sys
 
 
-def main():
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    state_name = sys.argv[4]
-
+def display_states(username, password, database, state_name):
     db = MySQLdb.connect(
             host="localhost",
             port=3306,
@@ -30,14 +27,24 @@ def main():
             db=database
             )
     cursor = db.cursor()
+    state_name_bytes = state_name.encode('utf-8')
     query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cursor.execute(query, (state_name,))
-    results = cursor.fetchall()
-    for row in results:
+    cursor.execute(query, (state_name_bytes,))
+    rows = cursor.fetchall()
+    for row in rows:
         print(row)
 
+    cursor.close()
     db.close()
 
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) != 5:
+        sys.exit(1)
+
+    mysql_username = sys.argv[1]
+    mysql_password = sys.argv[2]
+    database_name = sys.argv[3]
+    state_name = sys.argv[4]
+
+    display_states(mysql_username, mysql_password, database_name, state_name)
