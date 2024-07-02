@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 import json
+"""
+"""
+
 
 def save_to_json_file(my_obj, filename):
-    json_form = json.dumps(my_obj)
-    with open(filename, "w", encoding='utf-8') as file:
-        json_text = file.write(json_form)
-        return json_text
+    """
+    """
+    with open(filename, "w", encoding="utf-8") as file:
+        json_form = json.dumps(my_obj)
+        file.write(json_form)
